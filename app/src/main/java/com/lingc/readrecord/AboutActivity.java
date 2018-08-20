@@ -72,6 +72,17 @@ public class AboutActivity extends MaterialAboutActivity {
                         .text("开发者")
                         .subText("LingC")
                         .build())
+                .addItem(new MaterialAboutActionItem.Builder()
+                        .text("博客")
+                        .subText("https://lcblog.cn")
+                        .setOnClickAction(new MaterialAboutItemOnClickAction() {
+                            @Override
+                            public void onClick() {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://lcblog.cn"));
+                                startActivity(intent);
+                            }
+                        })
+                        .build())
                 .build();
         MaterialAboutCard card1 = new MaterialAboutCard.Builder()
                 .title("感谢以下开源项目")

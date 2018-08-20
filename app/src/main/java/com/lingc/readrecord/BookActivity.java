@@ -72,8 +72,8 @@ public class BookActivity extends AppCompatActivity {
                             .setAction("确定", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-
-                                    Toast.makeText(BookActivity.this, "该书籍已完成", Toast.LENGTH_SHORT).show();
+                                    DataSupport.deleteAll(Bookdata.class, "name == ?", name);
+                                    Toast.makeText(BookActivity.this, "恭喜，该书籍已完成", Toast.LENGTH_SHORT).show();
                                     finish();
                                 }
                             })
