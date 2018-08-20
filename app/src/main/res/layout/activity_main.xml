@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/Main_DrL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/Main_Toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:elevation="5dp"
+                    android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:popupTheme="@style/Base.ThemeOverlay.AppCompat.Light" />
+
+                <LinearLayout
+                    android:id="@+id/Main_Noany_Ly"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="这里没有任何的书籍，点击左下角添加吧" />
+
+                </LinearLayout>
+
+
+                <ListView
+                    android:id="@+id/Main_ListView"
+                    android:divider="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/Floating_Add_Btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_margin="16dp"
+                android:src="@drawable/baseline_add_24"
+                android:theme="@style/Base.ThemeOverlay.AppCompat.Dark" />
+
+        </android.support.design.widget.CoordinatorLayout>
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/Main_Nav"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            app:headerLayout="@layout/nav_header"
+            app:menu="@menu/nav_menu" />
+
+    </android.support.v4.widget.DrawerLayout>
+
+</android.support.constraint.ConstraintLayout>

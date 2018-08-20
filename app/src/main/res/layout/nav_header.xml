@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/Icon_Image"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/ic_lingc"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+
+        <TextView
+            android:textSize="18sp"
+            android:text="人亦有所云"
+            android:textColor="#fff"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
