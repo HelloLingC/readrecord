@@ -59,7 +59,8 @@ public class AboutActivity extends MaterialAboutActivity {
                         .build())
                 .addItem(new MaterialAboutActionItem.Builder()
                         .text("版本")
-                        .subText("v1.0.1 (查看更新日志)")
+                        .icon(R.drawable.baseline_error_outline_24)
+                        .subText("1.1.0 (查看更新日志)")
                         .setOnClickAction(new MaterialAboutItemOnClickAction() {
                             @Override
                             public void onClick() {
@@ -70,10 +71,12 @@ public class AboutActivity extends MaterialAboutActivity {
                         .build())
                 .addItem(new MaterialAboutActionItem.Builder()
                         .text("开发者")
+                        .icon(R.drawable.baseline_perm_identity_24)
                         .subText("LingC")
                         .build())
                 .addItem(new MaterialAboutActionItem.Builder()
                         .text("博客")
+                        .icon(R.drawable.baseline_language_24)
                         .subText("https://lcblog.cn")
                         .setOnClickAction(new MaterialAboutItemOnClickAction() {
                             @Override
@@ -83,15 +86,38 @@ public class AboutActivity extends MaterialAboutActivity {
                             }
                         })
                         .build())
+                .addItem(new MaterialAboutActionItem.Builder()
+                        .text("源代码")
+                        .icon(R.drawable.baseline_language_24)
+                        .subText("https://github.com/HelloLingC/readrecord")
+                        .setOnClickAction(new MaterialAboutItemOnClickAction() {
+                            @Override
+                            public void onClick() {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/HelloLingC/readrecord"));
+                                startActivity(intent);
+                            }
+                        })
+                        .build())
                 .build();
-        MaterialAboutCard card1 = new MaterialAboutCard.Builder()
+
+        /*MaterialAboutCard authorCard = new MaterialAboutCard.Builder()
+                .title("开发者")
+                .addItem(new MaterialAboutTitleItem.Builder()
+                        .text("LingC")
+                        .icon(R.mipmap.ic_lingc)
+                        .build())
+
+                .build();*/
+
+        MaterialAboutCard thinksCard = new MaterialAboutCard.Builder()
                 .title("感谢以下开源项目")
                 .addItem(new MaterialAboutActionItem.Builder()
                         .text("material-about-library")
                         .setOnClickAction(new MaterialAboutItemOnClickAction() {
                             @Override
                             public void onClick() {
-
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/daniel-stoneuk/material-about-library"));
+                                startActivity(intent);
                             }
                         })
                         .build())
@@ -100,7 +126,8 @@ public class AboutActivity extends MaterialAboutActivity {
                         .setOnClickAction(new MaterialAboutItemOnClickAction() {
                             @Override
                             public void onClick() {
-
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/bumptech/glide"));
+                                startActivity(intent);
                             }
                         })
                         .build())
@@ -109,7 +136,8 @@ public class AboutActivity extends MaterialAboutActivity {
                         .setOnClickAction(new MaterialAboutItemOnClickAction() {
                             @Override
                             public void onClick() {
-
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/hdodenhof/CircleImageView"));
+                                startActivity(intent);
                             }
                         })
                         .build())
@@ -118,7 +146,8 @@ public class AboutActivity extends MaterialAboutActivity {
                         .setOnClickAction(new MaterialAboutItemOnClickAction() {
                             @Override
                             public void onClick() {
-
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/square/okhttp"));
+                                startActivity(intent);
                             }
                         })
                         .build())
@@ -127,7 +156,8 @@ public class AboutActivity extends MaterialAboutActivity {
                         .setOnClickAction(new MaterialAboutItemOnClickAction() {
                             @Override
                             public void onClick() {
-
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/LitePalFramework/LitePal"));
+                                startActivity(intent);
                             }
                         })
                         .build())
@@ -135,7 +165,7 @@ public class AboutActivity extends MaterialAboutActivity {
 
         return new MaterialAboutList.Builder()
                 .addCard(card)
-                .addCard(card1)
+                .addCard(thinksCard)
                 .build();
     }
 

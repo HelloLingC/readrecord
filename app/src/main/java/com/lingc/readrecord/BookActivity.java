@@ -40,8 +40,8 @@ public class BookActivity extends AppCompatActivity {
         final String name = intent.getStringExtra("name");
         final String pages = intent.getStringExtra("pages");
         String readpage = intent.getStringExtra("readpage");
-        //String id = intent.getStringExtra("id");
-        //final int intid = Integer.parseInt(id);
+        final String image = intent.getStringExtra("image");
+        final String author = intent.getStringExtra("author");
         book_name_text.setText(name);
         book_page_text.setText(pages + "/");
         book_readpage_edit.setText(readpage);
@@ -72,6 +72,14 @@ public class BookActivity extends AppCompatActivity {
                             .setAction("确定", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
+                                    //将数据添加到ReadBook数据库
+                                    ReadBook book = new ReadBook();
+                                    book.setTitle(name);
+                                    book.setAuthor(author);
+                                    book.setImage(image);
+                                    book.save();
+
+                                    //删除Bookdata数据库中的数据
                                     DataSupport.deleteAll(Bookdata.class, "name == ?", name);
                                     Toast.makeText(BookActivity.this, "恭喜，该书籍已完成", Toast.LENGTH_SHORT).show();
                                     finish();

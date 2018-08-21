@@ -26,7 +26,10 @@
         <activity android:name=".BookActivity" />
         <activity
             android:name=".AboutActivity"
-            android:theme="@style/AppTheme.MaterialAboutActivity"/>
+            android:theme="@style/AppTheme.MaterialAboutActivity" />
+        <activity
+            android:name=".ReadBookActivity"
+            android:label="已读书籍"></activity>
     </application>
 
 </manifest>

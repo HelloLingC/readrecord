@@ -1,9 +1,11 @@
 package com.lingc.readrecord;
 
+import org.litepal.crud.DataSupport;
+
 public class Book {
     //一个实体类，用于Adapter
 
-    private String id;
+    private int id;
 
     private String image;
 
@@ -17,20 +19,20 @@ public class Book {
 
     private int readpage;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getReadpage() {
         return readpage;
     }
 
     public void setReadpage(int readpage) {
         this.readpage = readpage;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getTitle() {

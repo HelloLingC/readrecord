@@ -86,7 +86,7 @@ public class AddBookActivity extends AppCompatActivity {
                         .setAction("添加", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                List<Bookdata> books = DataSupport.where("bookid == ?",book.getId()).find(Bookdata.class);
+                                List<Bookdata> books = DataSupport.where("bookid == ?", book.toString()).find(Bookdata.class);
                                 Log.d("AddBook",books.toString());
 
                                 /*判断书籍是否已经添加
@@ -103,7 +103,7 @@ public class AddBookActivity extends AppCompatActivity {
                                 }
 
                                 Bookdata bookdata = new Bookdata();
-                                bookdata.setBookid(book.getId());
+                                bookdata.setBookid(book.getId() + "");
                                 bookdata.setAuthor(book.getAuthor());
                                 bookdata.setPages(book.getPages());
                                 bookdata.setName(book.getTitle());
@@ -216,6 +216,7 @@ public class AddBookActivity extends AppCompatActivity {
                     setListView(id, title, author, image, summary, pages);
                 }
             }
+            //DataSupport.deleteAll(Book.class);
             Log.d("AddBook","====Over====");
 
             //String auther = jsonObject.getString("auther");
@@ -228,7 +229,7 @@ public class AddBookActivity extends AppCompatActivity {
 
     private void setListView(String id, String title, String author, String image, String summary, int pages) {
         Book book = new Book();
-        book.setId(id);
+        book.setId(Integer.parseInt(id));
         book.setTitle(title);
         book.setAuthor(author);
         book.setImage(image);

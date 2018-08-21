@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView main_listview;
 
-    private List<Book> bookList = new ArrayList<>();
+    private List<Bookdata> bookList = new ArrayList<>();
 
     private MainAdapter adapter;
 
@@ -70,11 +70,13 @@ public class MainActivity extends AppCompatActivity {
         main_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final Book book = bookList.get(position);
+                final Bookdata book = bookList.get(position);
                 Intent intent = new Intent(MainActivity.this, BookActivity.class);
-                intent.putExtra("name", book.getTitle());
+                intent.putExtra("name", book.getName());
                 intent.putExtra("pages", book.getPages() + "");
                 intent.putExtra("readpage", book.getReadpage() + "");
+                intent.putExtra("image", book.getImage());
+                intent.putExtra("author", book.getAuthor());
                 startActivity(intent);
             }
         });
@@ -94,18 +96,25 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setHomeAsUpIndicator(R.drawable.baseline_list_24);
         }
 
-        //main_nav.setCheckedItem(R.id.nav_add);
         main_nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                //侧滑栏事件
                 switch (menuItem.getItemId()) {
                     case R.id.nav_add: {
                         Intent intent = new Intent(MainActivity.this, AddBookActivity.class);
                         startActivity(intent);
+                        break;
+                    }
+                    case R.id.nav_book: {
+                        Intent intent = new Intent(MainActivity.this, ReadBookActivity.class);
+                        startActivity(intent);
+                        break;
                     }
                     case R.id.nav_about: {
                         Intent intent = new Intent(MainActivity.this, AboutActivity.class);
                         startActivity(intent);
+                        break;
                     }
                 }
                 return true;
@@ -161,26 +170,20 @@ public class MainActivity extends AppCompatActivity {
             Log.d("MainActivity","数据存在");
             main_noany_ly.setVisibility(View.GONE);
             for (Bookdata bookdata : books) {
-                setListView(bookdata.getName(), bookdata.getAuthor(), bookdata.getPages(), bookdata.getReadpage(), bookdata.getImage());
+                bookList.add(bookdata);
             }
         }
         //adapter.clear();
         main_listview.setAdapter(adapter);
     }
 
-    private void setListView(String name, String author, int pages, int readpage, String image) {
+    //已弃用的方法
+    /*private void setListView(Bookdata bookdata) {
         Log.d("MainActivity", "====setListView====");
-        Book book = new Book();
-        book.setTitle(name);
-        book.setAuthor(author);
-        Log.d("MainActivity", "" + author);
-        book.setPages(pages);
-        book.setReadpage(readpage);
-        book.setImage(image);
-        bookList.add(book);
+        bookList.add(bookdata);
         Message message = new Message();
         message.what = SET_LISTVIEW;
         handler.sendMessage(message);
-    }
+    }*/
 
 }

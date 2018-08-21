@@ -17,12 +17,12 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainAdapter extends ArrayAdapter<Book> {
+public class MainAdapter extends ArrayAdapter<Bookdata> {
 
     private int resourceId;
 
 
-    public MainAdapter(Context context, int ViewResourId, List<Book> book) {
+    public MainAdapter(Context context, int ViewResourId, List<Bookdata> book) {
         super(context, ViewResourId, book);
         resourceId = ViewResourId;
     }
@@ -30,7 +30,7 @@ public class MainAdapter extends ArrayAdapter<Book> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Book book = getItem(position);
+        Bookdata book = getItem(position);
         View view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
         ImageView main_item_image = (ImageView) view.findViewById(R.id.Main_Item_Image);
         TextView main_item_name = (TextView) view.findViewById(R.id.Main_Item_Name);
@@ -40,7 +40,7 @@ public class MainAdapter extends ArrayAdapter<Book> {
         Glide.with(view)
                 .load(book.getImage())
                 .into(main_item_image);
-        main_item_name.setText(book.getTitle());
+        main_item_name.setText(book.getName());
         main_item_author.setText("作者：" + book.getAuthor());
         double a = book.getReadpage();
         double b = book.getPages();
